@@ -1,1 +1,54 @@
 <p>abm-curso works!</p>
+
+<form [formGroup]="cursoGrupoForm">
+
+    <label>CICLO DE ESTUDIO</label>
+    <mat-form-field appearance="standard">
+        <mat-select formControlName="cicloEstudio" placeholder="Placeholder">
+             <mat-option *ngFor="let ce of ciclosDeEstudio" [value]="ce ">
+                {{ce.descripcion}}
+             </mat-option> -->
+        </mat-select>
+    </mat-form-field>
+    <button mat-raised-button color="primary" (click)="altaCicloEstudio()">
+        <!-- Get Icons List from - https://material.io/resources/icons/?style=baseline -->
+        <mat-icon aria-hidden="false" aria-label="Example home icon">add</mat-icon>
+    </button>
+
+    <label>AÑO DE ESTUDIO: </label>
+    <mat-form-field appearance="standard">
+        <mat-select formControlName="secuencia" placeholder="Placeholder">
+            <mat-option *ngFor="let anioEstudio of aniosDeEstudio" [value]="anioEstudio">
+                {{anioEstudio.descripcion}}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <label>CODIGO: </label>
+    <mat-form-field appearance="standard">
+        <input matInput formControlName="codigo" placeholder="Placeholder">
+    </mat-form-field>
+
+
+    <label>DESCRIPCION</label>
+    <mat-form-field appearance="standard">
+        <input matInput formControlName="descripcion" placeholder="Placeholder">
+    </mat-form-field>
+
+    <label>LEYENDA PLANILLA:</label>
+    <mat-form-field appearance="standard">
+        <input matInput formControlName="leyendaPlanilla" placeholder="Placeholder">
+    </mat-form-field>
+
+    <label>EDAD</label>
+    <mat-form-field appearance="standard">
+        <input type="number" matInput formControlName="edad" placeholder="Placeholder">
+    </mat-form-field>
+
+    <button type="submit" [disabled]="!cursoGrupoForm.valid" (click)="altaOModificacioCursoGrupo()">
+        <!-- Get Icons List from - https://material.io/resources/icons/?style=baseline -->
+        <mat-icon aria-hidden="false" aria-label="Guardar">save</mat-icon>
+        GUARDAR
+    </button>
+    
+</form>

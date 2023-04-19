@@ -1,1 +1,22 @@
 <p>alta-ciclo-estudio works!</p>
+<form [formGroup]="cicloEstudioForm">
+
+    <label>CODIGO: </label>
+    <mat-form-field appearance="standard">
+        <input matInput formControlName="codigo" placeholder="Placeholder">
+    </mat-form-field>
+
+
+    <label>DESCRIPCION</label>
+    <mat-form-field appearance="standard">
+        <input matInput formControlName="descripcion" placeholder="Placeholder">
+    </mat-form-field>
+    
+
+    <button type="submit" [disabled]="!cicloEstudioForm.valid" (click)="altaCicloEstudio()">
+        <!-- Get Icons List from - https://material.io/resources/icons/?style=baseline -->
+        <mat-icon aria-hidden="false" aria-label="Guardar">save</mat-icon>
+        GUARDAR
+    </button>
+    
+</form>

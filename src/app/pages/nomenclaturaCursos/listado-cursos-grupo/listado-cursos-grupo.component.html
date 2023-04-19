@@ -1,1 +1,43 @@
 <p>listado-cursos-grupo works!</p>
+<!-- 'mat-button','mat-raised-button', 'mat-flat-button','mat-stroked-button','mat-icon-button','mat-fab','mat-mini-fab' -->
+<button mat-raised-button color="primary" (click)="agregarCursoGrupoNombre()">
+    <!-- Get Icons List from - https://material.io/resources/icons/?style=baseline -->
+    <mat-icon aria-hidden="false" aria-label="Agregar">add</mat-icon>
+    AGREGAR
+</button>
+
+<table mat-table [dataSource]="cursoGrupoNombreDS" class="mat-elevation-z8">
+    <!-- Column 1-->
+    <ng-container matColumnDef="codigo">
+        <th mat-header-cell *matHeaderCellDef>CODIGO</th>
+        <td mat-cell *matCellDef="let element"> {{element.codigo}} </td>
+    </ng-container>
+    <!-- Column 2-->
+    <ng-container matColumnDef="descripcion">
+        <th mat-header-cell *matHeaderCellDef>DESCRIPCION<th>
+        <td mat-cell *matCellDef="let element"> {{element.descripcion}} </td>
+    </ng-container>
+
+    <!-- Column 2-->
+    <ng-container matColumnDef="opciones">
+        <th mat-header-cell *matHeaderCellDef>OPCIONES</th>
+        <td mat-cell *matCellDef="let element">
+            <!-- 'mat-button','mat-raised-button', 'mat-flat-button','mat-stroked-button','mat-icon-button','mat-fab','mat-mini-fab' -->
+            <button mat-raised-button color="primary" (click)="verCursoGrupoNombre(element)">
+                <!-- Get Icons List from - https://material.io/resources/icons/?style=baseline -->
+                <mat-icon aria-hidden="false" aria-label="ver">zoom_in</mat-icon>
+            </button>
+            <button mat-raised-button color="primary" (click)="modificarCursoGrupoNombre(element)">
+                <mat-icon aria-hidden="false" aria-label="Editar">edit</mat-icon>
+            </button>
+            <button mat-raised-button color="primary" (click)="administrarCursoGrupoNombre(element)">
+                <mat-icon aria-hidden="false" aria-label="Administrar cursos">description</mat-icon>
+            </button>
+            <button mat-raised-button color="primary" (click)="eliminarCursoGrupoNombre(element)">
+                <mat-icon aria-hidden="false" aria-label="Eliminar">delete</mat-icon>
+            </button>
+        </td>
+    </ng-container>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>

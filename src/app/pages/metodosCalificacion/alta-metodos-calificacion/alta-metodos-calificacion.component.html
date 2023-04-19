@@ -1,1 +1,42 @@
-<p>alta-metodos-calificacion works!</p>
+<p>alta-modif-ver-metodo-calificacion works!</p>
+
+<form (ngSubmit)="altaOModificacion()" [formGroup]="myForm">
+
+    <label>Nombre: </label>
+    <mat-form-field appearance="standard">
+        <input matInput formControlName="nombre" placeholder="Placeholder">
+    </mat-form-field>
+
+    <mat-form-field appearance="standard">
+        <mat-label>Período evaluacion:</mat-label>
+        <mat-select formControlName="periodoEvaluacion" placeholder="Placeholder">
+            <mat-option *ngFor="let periodo of calificacionesPeriodo" [value]="periodo">
+                {{periodo.nombre}}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+
+
+    <label>Cantidad de calificaciones por período:</label>
+    <mat-form-field appearance="standard">
+        <input matInput formControlName="cantidadCalificacionesXPeriodo" placeholder="Placeholder">
+    </mat-form-field>
+
+    <mat-form-field appearance="standard">
+        <mat-label>Tipo de calificación</mat-label>
+        <mat-select formControlName="tipoCalificacion" placeholder="Placeholder">
+            <mat-option *ngFor="let tipoCalif of calificacionesTipo" [value]="tipoCalif ">
+                {{tipoCalif.nombre}}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+    
+    
+    <!-- 'mat-button','mat-raised-button', 'mat-flat-button','mat-stroked-button','mat-icon-button',
+        'mat-fab','mat-mini-fab' -->
+    <button mat-button color="primary" type="submit" [disabled]="!myForm.valid">
+        <mat-icon aria-hidden="false" aria-label="Example home icon">save</mat-icon>
+        GUARDAR
+    </button>
+
+</form>

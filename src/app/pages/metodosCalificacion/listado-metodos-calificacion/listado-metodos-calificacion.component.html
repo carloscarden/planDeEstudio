@@ -1,1 +1,62 @@
-<p>listado-metodos-calificacion works!</p>
+<mat-toolbar>
+    <span>Administración de títulos</span>
+    <span class="example-spacer"></span>
+    <button mat-raised-button color="primary" (click)="agregarMetodoDeCalificacion()">
+        <!-- Get Icons List from - https://material.io/resources/icons/?style=baseline -->
+        <mat-icon aria-hidden="false" aria-label="nuevo">add</mat-icon>
+    </button>
+    &nbsp;
+</mat-toolbar>
+
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+    <!-- Column 1-->
+    <ng-container matColumnDef="nombre">
+        <th mat-header-cell *matHeaderCellDef>NOMBRE</th>
+        <td mat-cell *matCellDef="let element"> {{element.nombre}} </td>
+    </ng-container>
+
+    <!-- Column 1-->
+    <ng-container matColumnDef="periodoEvaluacion">
+        <th mat-header-cell *matHeaderCellDef>PERIODO EVALUACION</th>
+        <td mat-cell *matCellDef="let element"> {{element.periodoEvaluacion.nombre}} </td>
+    </ng-container>
+
+    <!-- Column 1-->
+    <ng-container matColumnDef="cantidadCalificacionesPorPeriodo">
+        <th mat-header-cell *matHeaderCellDef>CANTIDAD CALIFICACIONES POR PERIODO</th>
+        <td mat-cell *matCellDef="let element"> {{element.cantidadCalificacionesXPeriodo}} </td>
+    </ng-container>
+    <!-- Column 1-->
+    <ng-container matColumnDef="tipoCalificacion">
+        <th mat-header-cell *matHeaderCellDef>TIPO CALIFICACION</th>
+        <td mat-cell *matCellDef="let element"> {{element.tipoCalificacion.nombre}} </td>
+    </ng-container>
+    <!-- Column 1-->
+    <ng-container matColumnDef="calificacionesPosibles">
+        <th mat-header-cell *matHeaderCellDef>CALIFICACIONES POSIBLES</th>
+        <td mat-cell *matCellDef="let element">
+            {{element.tipoCalificacion.nombre === 'Alfanumérica' 
+               ? element.calificacionesPosibles
+               : element.calificacionesPosibles.split(',').join(' al ')            
+            }} 
+        </td>
+    </ng-container>
+    <!-- Column 2-->
+    <ng-container matColumnDef="opciones">
+        <th mat-header-cell *matHeaderCellDef>OPCIONES</th>
+        <td mat-cell *matCellDef="let element">
+            <button mat-raised-button color="primary" (click)="verMetodoDeCalificacion(element)">
+                <mat-icon aria-hidden="false" aria-label="ver">zoom_in</mat-icon>
+            </button>
+            <button mat-raised-button color="primary" (click)="modificarMetodoDeCalificacion(element)">
+                <mat-icon aria-hidden="false" aria-label="editar">edit</mat-icon>
+            </button>
+            <button mat-raised-button color="primary" (click)="eliminarMetodoDeCalificacion(element)">
+                <mat-icon aria-hidden="false" aria-label="borrar">delete</mat-icon>
+            </button>
+        </td>
+    </ng-container>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+

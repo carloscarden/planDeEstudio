@@ -1,1 +1,43 @@
-<p>nav-administracion-rama works!</p>
+<!-- 
+  este nav está en el :header.jsp
+  El enrutador:  AdministracionRamaAction.java incluye la jsp correspondiente
+
+-->
+
+
+<mat-toolbar color="primary">
+  <button mat-button routerLink="inicioRama">INICIO</button>
+  <button mat-button [matMenuTriggerFor]="administracion">ADMINISTRACION</button>
+  <mat-menu #administracion="matMenu">
+    <button mat-menu-item [matMenuTriggerFor]="gestionEducativa">Gestión educativa</button>
+    <button mat-menu-item [matMenuTriggerFor]="titulos">Titulos</button>
+    <button mat-menu-item routerLink="cursosGrupo">Nomenclatura de cursos</button>
+    <button mat-menu-item routerLink="metodosCalificacion">Metodos de calificación</button>
+  </mat-menu>
+
+  <mat-menu #gestionEducativa="matMenu">
+    <button mat-menu-item routerLink="gestionEducativaPlanesDeEstudio">Planes de estudio</button>
+    <button mat-menu-item routerLink="gestionEducativaTablasReferenciales">Tablas referenciales</button>
+  </mat-menu>
+
+  <mat-menu #titulos="matMenu">
+    <button mat-menu-item routerLink="titulos">Titulos</button>
+    <button mat-menu-item routerLink="hojaDeRuta">Hoja de ruta</button>
+  </mat-menu>
+
+
+
+  <button mat-button routerLink="/seleccionarPerfil">SALIR</button>
+  <span class="example-spacer"></span>
+  <p>PERFIL : </p>
+  <mat-form-field appearance="fill"  >
+    <mat-select  name="opcionRama" #opcionRama="ngModel" 
+    [(ngModel)]="perfilRamaElegido" (ngModelChange)="cambiarPerfil($event)">
+      <mat-option *ngFor="let perfilRama of perfilesRama" [value]="perfilRama">   
+        {{perfilRama.descripcion}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+</mat-toolbar>
+
+<router-outlet></router-outlet>

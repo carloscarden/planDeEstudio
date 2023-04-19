@@ -1,1 +1,32 @@
-<p>abm-curso-grupo works!</p>
+<p>abm-cursos-grupo works!</p>
+<form [formGroup]="abmCursoGrupoNombreForm">
+
+    <label>ALIAS: </label>
+    <mat-form-field appearance="standard">
+        <mat-select formControlName="alias" placeholder="Placeholder">
+            <mat-option *ngFor="let aliaCurso of aliasCursos" [value]="aliaCurso.id">
+                {{aliaCurso.descripcion}}
+            </mat-option> 
+        </mat-select>
+    </mat-form-field>
+
+    <label>CÓDIGO: </label>
+    <mat-form-field appearance="standard">
+        <input matInput formControlName="codigo" placeholder="Placeholder">
+        <!-- <mat-icon matSuffix>sentiment_very_satisfied</mat-icon> -->
+    </mat-form-field>
+
+
+    <label>DESCRIPCIÓN: </label>
+    <mat-form-field appearance="standard">
+        <input matInput formControlName="descripcion" placeholder="Placeholder">
+        <!-- <mat-icon matSuffix>sentiment_very_satisfied</mat-icon> -->
+    </mat-form-field>
+
+    <button type="submit" [disabled]="!abmCursoGrupoNombreForm.valid" 
+    (click)="agregarOmodificarCursoGrupoNombre()">
+        <!-- Get Icons List from - https://material.io/resources/icons/?style=baseline -->
+        <mat-icon aria-hidden="false" aria-label="guardar">save</mat-icon>
+        GUARDAR
+    </button>
+</form>
