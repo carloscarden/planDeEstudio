@@ -37,6 +37,8 @@ import { AbmCursoGrupoComponent } from './pages/nomenclaturaCursos/abm-curso-gru
 import { ListadoCursosComponent } from './pages/nomenclaturaCursos/listado-cursos/listado-cursos.component';
 import { ListadoCursosGrupoComponent } from './pages/nomenclaturaCursos/listado-cursos-grupo/listado-cursos-grupo.component';
 import { AltaCicloEstudioComponent } from './pages/nomenclaturaCursos/alta-ciclo-estudio/alta-ciclo-estudio.component';
+import { ListadoMetodosCalificacionComponent } from './pages/metodosCalificacion/listado-metodos-calificacion/listado-metodos-calificacion.component';
+import { AltaMetodosCalificacionComponent } from './pages/metodosCalificacion/alta-metodos-calificacion/alta-metodos-calificacion.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -72,6 +74,8 @@ import { AltaCicloEstudioComponent } from './pages/nomenclaturaCursos/alta-ciclo
     ListadoCursosComponent,
     ListadoCursosGrupoComponent,
     AltaCicloEstudioComponent,
+    ListadoMetodosCalificacionComponent,
+    AltaMetodosCalificacionComponent,
   ],
   imports: [
     BrowserModule,
