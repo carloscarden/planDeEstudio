@@ -1,1 +1,22 @@
-<p>ley-de-educacion works!</p>
+<h1 mat-dialog-title>LEY DE EDUCACION</h1>
+<form [formGroup]="leyEducacionForm">
+
+    <mat-form-field appearance="standard">
+        <input matInput formControlName="leyEducacion" placeholder="Ingrese descripcion">
+        <!-- <mat-icon matSuffix>sentiment_very_satisfied</mat-icon> -->
+
+        <mat-error *ngIf="leyEducacionForm.get('leyEducacion')?.invalid 
+                            && leyEducacionForm.get('leyEducacion')?.touched">
+            No puede ingresar una descripcion vacia.
+        </mat-error>
+    </mat-form-field>
+    &nbsp;&nbsp;
+    <button type="submit" mat-raised-button color="primary" [disabled]="!leyEducacionForm.valid"
+        (click)="agregarNuevaLeyDeEducacion()">
+        GUARDAR
+        <!-- Get Icons List from - https://material.io/resources/icons/?style=baseline -->
+        <mat-icon aria-hidden="false" aria-label="Example home icon">save</mat-icon>
+    </button>
+</form>
+
+<mat-spinner *ngIf="loading"></mat-spinner>

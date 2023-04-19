@@ -1,1 +1,17 @@
-<p>edad works!</p>
+<h1 mat-dialog-title>EDADES</h1>
+
+<form [formGroup]="edadForm">
+    <mat-form-field appearance="standard">
+        <input matInput formControlName="edad" placeholder="Ingrese descripcion">
+        <!-- <mat-icon matSuffix>sentiment_very_satisfied</mat-icon> -->
+
+        <mat-error *ngIf="edadForm.get('edad')?.invalid 
+                            && edadForm.get('edad')?.touched">
+            No puede ingresar una descripcion vacia.
+        </mat-error>
+    </mat-form-field>
+    &nbsp;&nbsp;
+    <button type="submit" mat-raised-button [disabled]="!edadForm.valid" (click)="agregarEdad()">
+        Save
+    </button>
+</form>

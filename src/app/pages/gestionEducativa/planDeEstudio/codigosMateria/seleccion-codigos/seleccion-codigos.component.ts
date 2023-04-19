@@ -6,6 +6,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./seleccion-codigos.component.scss']
 })
 export class SeleccionCodigosComponent implements OnInit {
+  displayedColumns = ['seleccionar', 'descripcion', 'codigo'];
+  dataSource = [];
+
 
   constructor() { }
 

@@ -1,1 +1,8 @@
-<p>dialog-delete works!</p>
+
+
+<h1 mat-dialog-title>Atención</h1>
+<div mat-dialog-content>{{data.mensajeEliminacion}}</div>
+<div mat-dialog-actions>
+    <button mat-button (click)="aceptar()">ACEPTAR</button>
+    <button mat-button (click)="cancelar()">CANCELAR</button>
+</div>

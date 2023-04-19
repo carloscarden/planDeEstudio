@@ -7,9 +7,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListadoMateriasComponent implements OnInit {
 
+  displayedColumns = ['orden', 'materia', 'marcaModulo', 'cargaHoraria', 'codigos', 'codigoscargados'];
+
+  dataSource = [];
+
   constructor() { }
 
   ngOnInit(): void {
   }
 
+
+  verCodigoMateria(element: any): void {
+
+  }
 }

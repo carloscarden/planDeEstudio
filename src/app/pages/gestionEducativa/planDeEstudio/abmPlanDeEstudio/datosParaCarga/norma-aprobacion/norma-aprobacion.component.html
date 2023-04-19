@@ -1,1 +1,21 @@
-<p>norma-aprobacion works!</p>
+<h1 mat-dialog-title>NORMA DE APROBACIÓN</h1>
+<form [formGroup]="normaAprobacionForm">
+    <mat-form-field appearance="standard">
+        <input matInput formControlName="normaAprobacion" placeholder="Ingrese descripcion">
+        <!-- <mat-icon matSuffix>sentiment_very_satisfied</mat-icon> -->
+        <mat-error *ngIf="normaAprobacionForm.get('normaAprobacion')?.invalid 
+                            && normaAprobacionForm.get('normaAprobacion')?.touched">
+            No puede ingresar una descripcion vacia.
+        </mat-error>
+    </mat-form-field>
+
+&nbsp;&nbsp;
+    <button type="submit" mat-raised-button 
+      [disabled]="!normaAprobacionForm.valid" (click)="agregarNormaAprobacion()">
+        GUARDAR
+        <!-- Get Icons List from - https://material.io/resources/icons/?style=baseline -->
+        <mat-icon aria-hidden="false" aria-label="Example home icon">save</mat-icon>
+    </button>
+</form>
+
+<mat-spinner *ngIf="loading"></mat-spinner>

@@ -7,9 +7,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CodigoIngresoDocenciaComponent implements OnInit {
 
+  dataSource = [];
+  displayedColumns = ['codigo', 'cargaHoraria', 'divisiblePofa', 'acciones'];
+
+
   constructor() { }
 
   ngOnInit(): void {
   }
+
+  cargarcodigosingresodocencia(): void { }
+
+  editarIngresoDocencia(element: any): void { }
 
 }

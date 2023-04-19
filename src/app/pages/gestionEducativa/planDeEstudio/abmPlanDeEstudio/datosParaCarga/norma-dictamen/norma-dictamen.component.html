@@ -1,1 +1,20 @@
-<p>norma-dictamen works!</p>
+<h1 mat-dialog-title>NORMA DICTAMEN</h1>
+<form [formGroup]="normaDictamenForm">
+    <mat-form-field appearance="standard">
+        <input matInput formControlName="normaDictamen" placeholder="Ingrese descripcion">
+        <!-- <mat-icon matSuffix>sentiment_very_satisfied</mat-icon> -->
+
+        <mat-error *ngIf="normaDictamenForm.get('normaDictamen')?.invalid 
+                            && normaDictamenForm.get('normaDictamen')?.touched">
+            No puede ingresar una descripcion vacia.
+        </mat-error>
+    </mat-form-field>
+
+    &nbsp;&nbsp;
+    <button type="submit" mat-raised-button [disabled]="!normaDictamenForm.valid" (click)="agregarNormaDictamen()">
+        GUARDAR
+        <!-- Get Icons List from - https://material.io/resources/icons/?style=baseline -->
+        <mat-icon aria-hidden="false" aria-label="Example home icon">save</mat-icon>
+    </button>
+</form>
+<mat-spinner *ngIf="loading"></mat-spinner>

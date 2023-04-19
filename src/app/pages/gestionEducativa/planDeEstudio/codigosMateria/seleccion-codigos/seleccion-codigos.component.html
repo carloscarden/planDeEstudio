@@ -1,1 +1,29 @@
 <p>seleccion-codigos works!</p>
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+    <!--- Note that these columns can be defined in any order.
+        The actual rendered columns are set as a property on the row definition" -->
+
+
+    <!-- SELECCIONAR Column -->
+    <ng-container matColumnDef="codigo">
+        <th mat-header-cell *matHeaderCellDef>SELECCIONAR </th>
+        <td mat-cell *matCellDef="let element"> {{element.codigo}} </td>
+    </ng-container>
+
+
+    <!-- DESCRIPCION Column -->
+    <ng-container matColumnDef="codigo">
+        <th mat-header-cell *matHeaderCellDef>DESCRIPCION </th>
+        <td mat-cell *matCellDef="let element"> {{element.descripcion}} </td>
+    </ng-container>
+
+    <!-- CODIGO Column -->
+    <ng-container matColumnDef="codigo">
+        <th mat-header-cell *matHeaderCellDef> CODIGO</th>
+        <td mat-cell *matCellDef="let element"> {{element.codigo}} </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>

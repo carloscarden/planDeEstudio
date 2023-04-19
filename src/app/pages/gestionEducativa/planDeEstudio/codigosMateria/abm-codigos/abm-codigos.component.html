@@ -1,1 +1,33 @@
 <p>abm-codigos works!</p>
+<form [formGroup]="cargaCodigoForm">
+    <div class="form-container">
+
+        <mat-form-field appearance="fill">
+            <mat-label>CARGA HORARIA</mat-label>
+            <input matInput formControlName="cargaHoraria">
+            <mat-error *ngIf="cargaCodigoForm.get('cargaHoraria')?.invalid && 
+            cargaCodigoForm.get('cargaHoraria')?.touched" class="has-text-danger">
+                El input es requerido
+            </mat-error>
+        </mat-form-field>
+
+
+        <mat-form-field appearance="fill">
+            <mat-label>Divisible POFA:	</mat-label>
+            <mat-radio-group formControlName="radio">
+                <mat-radio-button value="-1">Mas antigua</mat-radio-button>
+            </mat-radio-group>
+            <mat-error *ngIf="cargaCodigoForm.get('divisiblePofa')?.invalid && 
+            cargaCodigoForm.get('divisiblePofa')?.touched" class="has-text-danger">
+                El input es requerido
+            </mat-error>
+        </mat-form-field>
+
+
+        <button mat-raised-button [disabled]="cargaCodigoForm.invalid || loading" color="primary" 
+        (click)="guardarDatosCodigo()">
+            Guardar
+        </button>
+    </div>
+
+</form>
