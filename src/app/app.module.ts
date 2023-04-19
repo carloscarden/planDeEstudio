@@ -22,6 +22,21 @@ import { MateriasComponent } from './pages/gestionEducativa/planDeEstudio/abmPla
 import { NormaAprobacionComponent } from './pages/gestionEducativa/planDeEstudio/abmPlanDeEstudio/datosParaCarga/norma-aprobacion/norma-aprobacion.component';
 import { NormaDictamenComponent } from './pages/gestionEducativa/planDeEstudio/abmPlanDeEstudio/datosParaCarga/norma-dictamen/norma-dictamen.component';
 import { OrientacionesComponent } from './pages/gestionEducativa/planDeEstudio/abmPlanDeEstudio/datosParaCarga/orientaciones/orientaciones.component';
+import { ListadoMateriasComponent } from './pages/gestionEducativa/planDeEstudio/codigosMateria/listado-materias/listado-materias.component';
+import { SeleccionCodigosComponent } from './pages/gestionEducativa/planDeEstudio/codigosMateria/seleccion-codigos/seleccion-codigos.component';
+import { CodigoIngresoDocenciaComponent } from './pages/gestionEducativa/planDeEstudio/codigosMateria/codigo-ingreso-docencia/codigo-ingreso-docencia.component';
+import { AbmCodigosComponent } from './pages/gestionEducativa/planDeEstudio/codigosMateria/abm-codigos/abm-codigos.component';
+import { MateriasDatosExtraComponent } from './pages/gestionEducativa/planDeEstudio/datosExtra/materias-datos-extra/materias-datos-extra.component';
+import { InicioDatosExtraComponent } from './pages/gestionEducativa/planDeEstudio/datosExtra/inicio-datos-extra/inicio-datos-extra.component';
+import { AnioDatosExtraComponent } from './pages/gestionEducativa/planDeEstudio/datosExtra/anio-datos-extra/anio-datos-extra.component';
+import { AbmAnioDatosExtraComponent } from './pages/gestionEducativa/planDeEstudio/datosExtra/abm-anio-datos-extra/abm-anio-datos-extra.component';
+import { AbmDatosExtraComponent } from './pages/gestionEducativa/planDeEstudio/datosExtra/abm-datos-extra/abm-datos-extra.component';
+import { AbmMateriasDatosExtraComponent } from './pages/gestionEducativa/planDeEstudio/datosExtra/abm-materias-datos-extra/abm-materias-datos-extra.component';
+import { AbmCursoComponent } from './pages/nomenclaturaCursos/abm-curso/abm-curso.component';
+import { AbmCursoGrupoComponent } from './pages/nomenclaturaCursos/abm-curso-grupo/abm-curso-grupo.component';
+import { ListadoCursosComponent } from './pages/nomenclaturaCursos/listado-cursos/listado-cursos.component';
+import { ListadoCursosGrupoComponent } from './pages/nomenclaturaCursos/listado-cursos-grupo/listado-cursos-grupo.component';
+import { AltaCicloEstudioComponent } from './pages/nomenclaturaCursos/alta-ciclo-estudio/alta-ciclo-estudio.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -42,6 +57,21 @@ import { OrientacionesComponent } from './pages/gestionEducativa/planDeEstudio/a
     NormaAprobacionComponent,
     NormaDictamenComponent,
     OrientacionesComponent,
+    ListadoMateriasComponent,
+    SeleccionCodigosComponent,
+    CodigoIngresoDocenciaComponent,
+    AbmCodigosComponent,
+    MateriasDatosExtraComponent,
+    InicioDatosExtraComponent,
+    AnioDatosExtraComponent,
+    AbmAnioDatosExtraComponent,
+    AbmDatosExtraComponent,
+    AbmMateriasDatosExtraComponent,
+    AbmCursoComponent,
+    AbmCursoGrupoComponent,
+    ListadoCursosComponent,
+    ListadoCursosGrupoComponent,
+    AltaCicloEstudioComponent,
   ],
   imports: [
     BrowserModule,
