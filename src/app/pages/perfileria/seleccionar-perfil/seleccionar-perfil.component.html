@@ -1,0 +1,80 @@
+<!-- 
+      seleccionarPerfil.jsp
+     ( SeleccionarPerfilForm)
+
+-->
+
+
+
+<div class="example-container">
+  <header class="p-3">
+    <img src="assets/logo_ba_dgcye_2020_white.png" alt="Provincia de Buenos Aires">
+  </header>
+
+  <div class="spinner-container" *ngIf="loading$ | async">
+    <mat-spinner></mat-spinner>
+  </div>
+  <div class="content" *ngIf="perfilesUsuario !== null && perfilesUsuario !== undefined">
+    <div class="centrado">
+      <span class="ng-star-inserted">Seleccione el tipo de perfil:</span>
+    </div>
+
+
+    <br><br>
+    <form (ngSubmit)="onSubmit()" #perfilForm="ngForm">
+
+      <mat-form-field>
+        <mat-select placeholder="Perfil que desea utilizar"  name="perfil" 
+        [(ngModel)]="perfilElegido" #perfil="ngModel" required>
+          <mat-option *ngFor="let perfil of perfilesUsuario" [value]="perfil" placeholder="perfiles">
+            {{perfil}}
+          </mat-option>
+        </mat-select>
+        <mat-error [hidden]="perfil.valid || perfil.pristine" class="has-text-danger">
+          El rol que va a utilizar es requerido
+        </mat-error>
+      </mat-form-field>
+
+
+
+      <mat-form-field *ngIf="perfilElegido === 'Administrador rama'">
+        <mat-label>Seleccione una opcion</mat-label>
+        <input type="text" placeholder="Eligir una opción" aria-label="opcion rama " matInput 
+          [matAutocomplete]="auto"  name="opcionRama" #opcionRama="ngModel"
+          [(ngModel)]="opcionRamaElegida" (ngModelChange)="applyFilter($event)" required>
+        <mat-autocomplete #auto="matAutocomplete" [displayWith]="getOptionText">
+          <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+            {{option.descripcion}}
+          </mat-option>
+        </mat-autocomplete>
+        
+        <mat-error [hidden]="opcionRama.valid || opcionRama.pristine" class="has-text-danger">
+          La opcion es requerida
+        </mat-error>
+      </mat-form-field>
+
+
+
+      <mat-form-field *ngIf="perfilElegido === 'Super administrador'">
+        <input placeholder="Ingrese un establecimiento"  name="opcionEstab" matInput
+          [(ngModel)]="estabElegido" #opcionEstab="ngModel" required>
+        <mat-error [hidden]="!procesaBienEstab() && !opcionEstab.pristine" class="has-text-danger">
+          El establecimiento es requerido
+        </mat-error>
+      </mat-form-field>
+
+
+      <button mat-raised-button color="primary" class="btnRoles" 
+      [disabled]="!perfilForm.form.valid || !procesaBienEstab()" >
+        ACEPTAR
+      </button>
+
+
+      <div class="spinner-container" *ngIf="loadingSubmit$ | async">
+        <mat-spinner></mat-spinner>
+      </div>
+
+      
+    </form>
+  </div>
+</div>

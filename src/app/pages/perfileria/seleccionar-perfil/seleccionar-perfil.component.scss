@@ -1,0 +1,75 @@
+
+
+button.mat-button.mat-primary {
+    border: 1px solid #00b1c7;
+    padding: 0px 31px;
+    color: #ffffff;
+    margin-left: 10px;
+    background-color: #00b1c7;
+}
+form.ng-untouched.ng-pristine.ng-invalid {
+    margin-top: 7px;
+}
+
+header {
+    background-color: #00b1c7;
+}
+
+@media (max-width: 575.98px) {
+    .mat-form-field {
+        margin-top: 0px;
+        margin-bottom: 0px;
+        width: 100%;
+    }
+    button.mat-button.mat-primary {
+        margin-left: 0;
+        width: 100%;
+        margin-top: 10px;
+    }
+    .content {
+        padding-top: 15px;
+    }
+    .content p {
+        font-size: 1rem;
+    }
+    form.ng-untouched.ng-pristine.ng-invalid {
+        margin-top: 30px;
+    }
+}
+
+
+.mat-form-field {
+    display: block;
+}
+.content {
+    padding: 7vh;
+}
+.ng-star-inserted {
+	color: #707070;
+    font-size: 1.5rem;
+}
+.btnRoles {
+	color: #ffffff;
+    border: 1px solid #00b1c7;
+    background-color: #00b1c7;
+    width: 100%;
+    margin-top: 20px;
+}
+.mat-raised-button[disabled] {
+    background-color: #fff;
+    color: #00b1c7;
+}
+
+.centrado {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+@media (max-width: 900px) {
+    .content {
+        padding:9vh 13vw;
+    }
+}
